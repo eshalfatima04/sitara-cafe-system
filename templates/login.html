@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sitara Chemicals Cafe</title>
+    <title>Login - Sitara Chemicals Cafe</title>
 
     <style>
         body {
@@ -21,6 +21,7 @@
             gap: 15px;
         }
 
+        /* Drawn star inside a circle */
         .logo-star {
             width: 55px;
             height: 55px;
@@ -60,24 +61,21 @@
 
         .card {
             background-color: white;
-            width: 340px;
+            width: 300px;
             margin: auto;
-            padding: 35px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .card h2 {
-            color: #1a3a7a;
-        }
+        h2 { color: #1a3a7a; }
 
-        .card p {
-            color: #444;
-            line-height: 1.5;
-        }
-
-        a {
-            text-decoration: none;
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
         }
 
         button {
@@ -88,11 +86,16 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 10px;
         }
 
         button:hover {
             background-color: #274d99;
+        }
+
+        .error {
+            color: #c62828;
+            margin-top: 15px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -112,14 +115,24 @@
     <div class="container">
 
         <div class="card">
-            <h2>Welcome! ⭐</h2>
+            <h2>Login 🔐</h2>
 
-            <p>
-                Welcome to the Sitara Chemical Industries
-                Cafe Management System.
-            </p>
+            <form method="POST" action="/login">
 
-            <a href="/login"><button>Get Started</button></a>
+                <input type="text" name="username" placeholder="Username" required>
+
+                <input type="password" name="password" placeholder="Password" required>
+
+                <br><br>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
         </div>
 
     </div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee - Sitara Chemicals Cafe</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #eef2f8;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a3a7a;
+            color: white;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-star {
+            width: 55px; height: 55px; background-color: white;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+        }
+        .logo-star span { color: #1a3a7a; font-size: 34px; line-height: 1; }
+
+        .brand { text-align: left; }
+        .brand h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
+        .brand p { margin: 3px 0 0 0; font-size: 14px; opacity: 0.9; }
+
+        .container { padding: 40px; }
+
+        .card {
+            background-color: white;
+            width: 320px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h2 { color: #1a3a7a; }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        label { display: block; margin-top: 10px; font-size: 15px; }
+
+        button {
+            background-color: #1a3a7a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        button:hover { background-color: #274d99; }
+
+        .error { color: #c62828; font-weight: bold; margin-top: 15px; }
+        .success { color: #1a3a7a; font-weight: bold; margin-top: 15px; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #1a3a7a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-star"><span>★</span></div>
+        <div class="brand">
+            <h1>SITARA CHEMICAL INDUSTRIES</h1>
+            <p>Add New Employee (Admin)</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Add Employee 👤</h2>
+
+            <form method="POST" action="/add_employee">
+
+                <input type="text" name="full_name" placeholder="Full Name" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+
+                <label>
+                    <input type="checkbox" name="is_admin" value="yes"
+                           style="width:auto; margin-right:6px;">
+                    Make this person an admin
+                </label>
+
+                <button type="submit">Add Employee</button>
+
+            </form>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            {% if success %}
+                <p class="success">✅ {{ success }}</p>
+            {% endif %}
+
+            <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

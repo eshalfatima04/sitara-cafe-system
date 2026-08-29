@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Menu - Sitara Chemicals</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #eef2f8;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a3a7a;
+            color: white;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-star {
+            width: 55px; height: 55px; background-color: white;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+        }
+        .logo-star span { color: #1a3a7a; font-size: 34px; line-height: 1; }
+
+        .brand { text-align: left; }
+        .brand h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
+        .brand p { margin: 3px 0 0 0; font-size: 14px; opacity: 0.9; }
+
+        .container { padding: 30px; }
+
+        .card {
+            background-color: white;
+            width: 400px;
+            max-width: 90%;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h2 { color: #1a3a7a; }
+
+        .customer-name { margin-bottom: 20px; }
+
+        .customer-name input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .item input {
+            width: 50px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 25px;
+            background-color: #1a3a7a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover { background-color: #274d99; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #1a3a7a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-star"><span>★</span></div>
+        <div class="brand">
+            <h1>SITARA CHEMICAL INDUSTRIES</h1>
+            <p>Cafe Management System</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>☕ Cafe Menu</h2>
+
+            <form method="POST" action="/save_order">
+
+                <div class="customer-name">
+                    <label for="customerName"><strong>Customer Name</strong></label>
+                    <br><br>
+                    <input type="text" id="customerName" name="customer_name"
+                           placeholder="Enter customer name" required>
+                </div>
+
+                <div class="item">
+                    <span>Tea - ₹20</span>
+                    <input type="number" id="tea" name="tea" value="0" min="0">
+                </div>
+
+                <div class="item">
+                    <span>Coffee - ₹40</span>
+                    <input type="number" id="coffee" name="coffee" value="0" min="0">
+                </div>
+
+                <div class="item">
+                    <span>Sandwich - ₹60</span>
+                    <input type="number" id="sandwich" name="sandwich" value="0" min="0">
+                </div>
+
+                <div class="item">
+                    <span>Veg Burger - ₹80</span>
+                    <input type="number" id="burger" name="burger" value="0" min="0">
+                </div>
+
+                <button type="submit">Place Order</button>
+
+            </form>
+
+            <div id="bill"></div>
+
+            <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

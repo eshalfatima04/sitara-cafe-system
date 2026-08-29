@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Records - Sitara Chemicals Cafe</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #eef2f8;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a3a7a;
+            color: white;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-star {
+            width: 55px; height: 55px; background-color: white;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+        }
+        .logo-star span { color: #1a3a7a; font-size: 34px; line-height: 1; }
+
+        .brand { text-align: left; }
+        .brand h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
+        .brand p { margin: 3px 0 0 0; font-size: 14px; opacity: 0.9; }
+
+        .container { padding: 40px; }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #1a3a7a;
+            color: white;
+            padding: 14px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover { background-color: #eef2f8; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #1a3a7a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-star"><span>★</span></div>
+        <div class="brand">
+            <h1>SITARA CHEMICAL INDUSTRIES</h1>
+            <p>Attendance Records</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Employee Name</th>
+                <th>Username</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Meal Choice</th>
+                <th>Special Request</th>
+            </tr>
+
+            {% for record in records %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>{{ record[4] }}</td>
+                <td>{{ record[5] }}</td>
+                <td>{{ record[6] if record[6] else "—" }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+
+    </div>
+
+</body>
+</html>
